@@ -117,6 +117,7 @@ export interface EditorTranslations {
   language_it: string;
   language_sk: string;
   language_hu: string;
+  language_pt: string;
   wind_speed_unit: string;
   wind_speed_unit_ms: string;
   wind_speed_unit_kmh: string;
@@ -159,4 +160,4 @@ export interface Translation {
   demo: DemoTranslations;
 }
 
-export type SupportedLanguage = 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
+export type SupportedLanguage = 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu' | 'pt';
