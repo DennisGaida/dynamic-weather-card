@@ -42,5 +42,6 @@ export const DEFAULT_CONFIG: Required<Omit<WeatherCardConfig, 'entity' | 'type'>
   textShadow: 1,
   language: 'auto',
   height: null,
-  windSpeedUnit: 'ms'
+  windSpeedUnit: 'ms',
+  layout: 'default' as 'default' | 'minimal'
 };

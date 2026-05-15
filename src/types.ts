@@ -129,6 +129,7 @@ export interface WeatherCardConfig {
   language?: 'auto' | 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
   height?: number | null;
   windSpeedUnit?: 'ms' | 'kmh';
+  layout?: 'default' | 'minimal';
 }
 
 // Time of Day
@@ -221,6 +222,7 @@ export interface ConfigInput {
   text_shadow?: number;
   language?: 'auto' | 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
   wind_speed_unit?: 'ms' | 'kmh';
+  layout?: 'default' | 'minimal';
   sunrise_entity?: string;
   sunset_entity?: string;
   templow_attribute?: string;
