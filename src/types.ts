@@ -125,6 +125,7 @@ export interface WeatherCardConfig {
   clockPosition?: 'top' | 'details';
   clockFormat?: '12h' | '24h';
   overlayOpacity?: number;
+  textShadow?: number;
   language?: 'auto' | 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
   height?: number | null;
   windSpeedUnit?: 'ms' | 'kmh';
@@ -217,6 +218,7 @@ export interface ConfigInput {
   clock_position?: 'top' | 'details';
   clock_format?: '12h' | '24h';
   overlay_opacity?: number;
+  text_shadow?: number;
   language?: 'auto' | 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
   wind_speed_unit?: 'ms' | 'kmh';
   sunrise_entity?: string;
