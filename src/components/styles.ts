@@ -57,6 +57,7 @@ export const cardStyles = css`
     height: 100%;
     min-height: 100%;
     pointer-events: none;
+    z-index: 0;
   }
 
   canvas {
@@ -78,13 +79,13 @@ export const cardStyles = css`
       rgba(0, 0, 0, calc(var(--overlay-opacity) * 0.8)) 0%,
       rgba(0, 0, 0, calc(var(--overlay-opacity) * 1.2)) 100%
     );
-    z-index: 0;
+    z-index: 1;
     border-radius: 16px;
   }
 
   .content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     padding: 20px;
     display: flex;
     flex-direction: column;
