@@ -10,6 +10,7 @@ export class WeatherDetails extends LitElement {
   @property({ type: Object }) sunData: SunData | null = null;
   @property({ type: Object }) config: DetailsConfig | null = null;
   @property({ type: Object }) entityAttributes: WeatherEntityAttributes | null = null;
+  @property({ type: Boolean, reflect: true }) compact = false;
 
   static styles = css`
     :host {
@@ -26,6 +27,14 @@ export class WeatherDetails extends LitElement {
       gap: 6px 12px;
       font-size: 13px;
       opacity: 0.9;
+    }
+
+    :host([compact]) .info-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      font-size: 12px;
     }
 
     .info-item {
@@ -133,8 +142,8 @@ export class WeatherDetails extends LitElement {
     return html`
       <div class="info-grid">
         ${this.renderHumidity()}
-        ${this.renderSunrise()}
         ${this.renderWind()}
+        ${this.renderSunrise()}
         ${this.renderSunset()}
       </div>
     `;
