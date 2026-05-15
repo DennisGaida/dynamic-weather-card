@@ -175,6 +175,7 @@ export class AnimatedWeatherCard extends LitElement {
       clockPosition: config.clock_position || DEFAULT_CONFIG.clockPosition,
       clockFormat: config.clock_format || DEFAULT_CONFIG.clockFormat,
       overlayOpacity: config.overlay_opacity !== undefined ? config.overlay_opacity : DEFAULT_CONFIG.overlayOpacity,
+      textShadow: config.text_shadow !== undefined ? config.text_shadow : DEFAULT_CONFIG.textShadow,
       language: config.language || DEFAULT_CONFIG.language,
       windSpeedUnit: config.wind_speed_unit || DEFAULT_CONFIG.windSpeedUnit,
       sunriseEntity: config.sunrise_entity || null,
@@ -237,6 +238,19 @@ export class AnimatedWeatherCard extends LitElement {
       : DEFAULT_CONFIG.overlayOpacity;
     const overlayStyle = `--overlay-opacity: ${overlayOpacity};`;
 
+    const shadowStrength = this.config.textShadow ?? DEFAULT_CONFIG.textShadow;
+    const textShadowValue = shadowStrength === 0
+      ? 'none'
+      : [
+        `0 1px 2px rgba(0,0,0,${Math.min(1, 0.4 * shadowStrength).toFixed(2)})`,
+        `0 2px 6px rgba(0,0,0,${Math.min(1, 0.3 * shadowStrength).toFixed(2)})`,
+        `0 4px 12px rgba(0,0,0,${Math.min(1, 0.2 * shadowStrength).toFixed(2)})`
+      ].join(', ');
+    const iconFilterValue = shadowStrength === 0
+      ? 'none'
+      : `drop-shadow(0px 1px 3px rgba(0,0,0,${Math.min(1, 0.6 * shadowStrength).toFixed(2)}))`;
+    const shadowStyle = `--card-text-shadow: ${textShadowValue}; --card-icon-filter: ${iconFilterValue};`;
+
     const hourlyForecast = this.config.showHourlyForecast
       ? this.forecastService.getHourlyForecast(
         this.config.hourlyForecastHours ?? DEFAULT_CONFIG.hourlyForecastHours,
@@ -258,7 +272,7 @@ export class AnimatedWeatherCard extends LitElement {
         @pointerup=${(e: PointerEvent) => this.actionHandler.handlePointerUp(e)}
         @pointercancel=${(e: PointerEvent) => this.actionHandler.handlePointerUp(e)}
       >
-        <div class="${cardClasses}" style="min-height: ${minHeight}; ${bgStyle}; ${overlayStyle} cursor: pointer;">
+        <div class="${cardClasses}" style="min-height: ${minHeight}; ${bgStyle}; ${overlayStyle} ${shadowStyle} cursor: pointer;">
           <div class="canvas-container"></div>
           <div class="content">
             ${this.config.name && this.config.name.trim() !== '' ? html`
