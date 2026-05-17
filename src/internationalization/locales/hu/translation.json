@@ -69,7 +69,8 @@
     "language_sk": "Szlovák",
     "wind_speed_unit": "Szélsebesség egység",
     "wind_speed_unit_ms": "m/s",
-    "wind_speed_unit_kmh": "km/h"
+    "wind_speed_unit_kmh": "km/h",
+    "show_animations": "Animációk megjelenítése"
   },
   "demo": {
     "pageTitle": "Dynamic Weather Card",

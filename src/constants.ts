@@ -41,5 +41,6 @@ export const DEFAULT_CONFIG: Required<Omit<WeatherCardConfig, 'entity' | 'type'>
   overlayOpacity: 0.1,
   language: 'auto',
   height: null,
-  windSpeedUnit: 'ms'
+  windSpeedUnit: 'ms',
+  showAnimations: true
 };

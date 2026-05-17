@@ -91,6 +91,21 @@ export class AnimatedWeatherCard extends LitElement {
 
   updated(changedProperties: Map<string, unknown>): void {
     super.updated(changedProperties);
+
+    if (changedProperties.has('config')) {
+      const prev = changedProperties.get('config') as WeatherCardConfigInternal | undefined;
+      const wasAnimating = prev ? prev.showAnimations !== false : true;
+      const isAnimating = this.config.showAnimations !== false;
+      if (wasAnimating && !isAnimating) {
+        this.animationManager.destroy();
+      } else if (!wasAnimating && isAnimating) {
+        this.updateComplete.then(() => {
+          const container = this.shadowRoot?.querySelector('.canvas-container');
+          if (container) this.animationManager.setup(container);
+        });
+      }
+    }
+
     if (changedProperties.has('hass') || changedProperties.has('config')) {
       const entity = this.config.entity;
       const showDaily = this.config.showDailyForecast ?? false;
@@ -177,6 +192,7 @@ export class AnimatedWeatherCard extends LitElement {
       overlayOpacity: config.overlay_opacity !== undefined ? config.overlay_opacity : DEFAULT_CONFIG.overlayOpacity,
       language: config.language || DEFAULT_CONFIG.language,
       windSpeedUnit: config.wind_speed_unit || DEFAULT_CONFIG.windSpeedUnit,
+      showAnimations: config.show_animations !== false,
       sunriseEntity: config.sunrise_entity || null,
       sunsetEntity: config.sunset_entity || null,
       templowAttribute: config.templow_attribute || null,
@@ -259,7 +275,7 @@ export class AnimatedWeatherCard extends LitElement {
         @pointercancel=${(e: PointerEvent) => this.actionHandler.handlePointerUp(e)}
       >
         <div class="${cardClasses}" style="min-height: ${minHeight}; ${bgStyle}; ${overlayStyle} cursor: pointer;">
-          <div class="canvas-container"></div>
+          ${this.config.showAnimations !== false ? html`<div class="canvas-container"></div>` : ''}
           <div class="content">
             ${this.config.name && this.config.name.trim() !== '' ? html`
               <div class="header">

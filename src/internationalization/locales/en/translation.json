@@ -69,7 +69,8 @@
     "language_hu": "Hungarian",
     "wind_speed_unit": "Wind Speed Unit",
     "wind_speed_unit_ms": "m/s",
-    "wind_speed_unit_kmh": "km/h"
+    "wind_speed_unit_kmh": "km/h",
+    "show_animations": "Show Animations"
   },
   "demo": {
     "pageTitle": "Dynamic Weather Card",
