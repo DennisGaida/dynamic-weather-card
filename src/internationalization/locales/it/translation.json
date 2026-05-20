@@ -56,6 +56,7 @@
     "clock_format_12h": "12 ore (AM/PM)",
     "clock_format_24h": "24 ore",
     "overlay_opacity": "Opacità sovrapposizione",
+    "text_shadow": "Intensità ombra testo",
     "language": "Lingua",
     "language_auto": "Auto",
     "language_en": "Inglese",
