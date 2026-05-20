@@ -59,6 +59,7 @@
     "clock_format_12h": "12-часовой (AM/PM)",
     "clock_format_24h": "24-часовой",
     "overlay_opacity": "Прозрачность подложки",
+    "text_shadow": "Интенсивность тени текста",
     "language": "Язык",
     "language_auto": "Авто",
     "language_en": "Английский",
