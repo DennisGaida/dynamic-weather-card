@@ -18,7 +18,9 @@ const result = await Bun.build({
   },
   sourcemap: 'none',
   define: {
-    __VERSION__: JSON.stringify(pkg.version)
+    __VERSION__: JSON.stringify(pkg.version),
+    'process.env.NODE_ENV': '"production"',
+    'globalThis.litDisableBundledWarnings': 'true'
   }
 });
 
