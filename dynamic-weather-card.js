@@ -779,6 +779,12 @@ Please use the static 'html' tag function. See https://lit.dev/docs/templates/ex
       height: 20px;
       display: block;
     }
+
+    :host([compact]) .sun-group {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
   `;hasContent(){if(!this.weather||!this.config)return!1;return this.config.showHumidity&&this.weather.humidity!=null||this.config.showWind&&this.weather.windSpeed!=null||this.config.showSunriseSunset&&this.sunData?.hasSunData===!0}renderHumidity(){if(!this.config?.showHumidity||this.weather?.humidity==null)return e``;return e`
       <div class="info-item">
         <span class="info-icon">${ii("humidity")}</span>
@@ -799,12 +805,16 @@ Please use the static 'html' tag function. See https://lit.dev/docs/templates/ex
         <span class="info-icon">${ii("sunset")}</span>
         <span>${Si(this.sunData.sunset,this.config.clockFormat,d.t("am"),d.t("pm"))}</span>
       </div>
-    `}render(){if(!this.hasContent())return e``;return e`
+    `}render(){if(!this.hasContent())return e``;let o=this.config?.showSunriseSunset&&this.sunData?.hasSunData?e`
+      <div class="sun-group">
+        ${this.renderSunrise()}
+        ${this.renderSunset()}
+      </div>
+    `:e``;return e`
       <div class="info-grid">
         ${this.renderHumidity()}
         ${this.renderWind()}
-        ${this.renderSunrise()}
-        ${this.renderSunset()}
+        ${this.compact?o:e`${this.renderSunrise()}${this.renderSunset()}`}
       </div>
     `}}t([w({type:Object})],Uo.prototype,"weather",void 0),t([w({type:Object})],Uo.prototype,"sunData",void 0),t([w({type:Object})],Uo.prototype,"config",void 0),t([w({type:Object})],Uo.prototype,"entityAttributes",void 0),t([w({type:Boolean,reflect:!0})],Uo.prototype,"compact",void 0);customElements.define("weather-details",Uo);var ki=W`
   :host {
