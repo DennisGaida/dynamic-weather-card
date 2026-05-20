@@ -62,6 +62,12 @@ export class WeatherDetails extends LitElement {
       height: 20px;
       display: block;
     }
+
+    :host([compact]) .sun-group {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
   `;
 
   private hasContent(): boolean {
@@ -139,12 +145,19 @@ export class WeatherDetails extends LitElement {
   render(): TemplateResult {
     if (!this.hasContent()) return html``;
 
+    const hasSun = this.config?.showSunriseSunset && this.sunData?.hasSunData;
+    const sunItems = hasSun ? html`
+      <div class="sun-group">
+        ${this.renderSunrise()}
+        ${this.renderSunset()}
+      </div>
+    ` : html``;
+
     return html`
       <div class="info-grid">
         ${this.renderHumidity()}
         ${this.renderWind()}
-        ${this.renderSunrise()}
-        ${this.renderSunset()}
+        ${this.compact ? sunItems : html`${this.renderSunrise()}${this.renderSunset()}`}
       </div>
     `;
   }
