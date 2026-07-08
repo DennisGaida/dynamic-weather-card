@@ -18,17 +18,17 @@ import sr from './locales/sr/translation.json';
 export type SupportedLanguage = 'da' | 'de' | 'en' | 'es' | 'fr' | 'hu' | 'it' | 'nl' | 'pl' | 'pt' | 'ru' | 'sk' | 'sr';
 
 export const translations: Record<SupportedLanguage, Translation> = {
-  da: da as unknown as Translation,
-  de: de as unknown as Translation,
-  en: en as unknown as Translation,
-  es: es as unknown as Translation,
-  fr: fr as unknown as Translation,
-  hu: hu as unknown as Translation,
-  it: it as unknown as Translation,
-  nl: nl as unknown as Translation,
-  pl: pl as unknown as Translation,
-  pt: pt as unknown as Translation,
-  ru: ru as unknown as Translation,
-  sk: sk as unknown as Translation,
-  sr: sr as unknown as Translation
+  da: da as Translation,
+  de: de as Translation,
+  en: en as Translation,
+  es: es as Translation,
+  fr: fr as Translation,
+  hu: hu as Translation,
+  it: it as Translation,
+  nl: nl as Translation,
+  pl: pl as Translation,
+  pt: pt as Translation,
+  ru: ru as Translation,
+  sk: sk as Translation,
+  sr: sr as Translation
 };

@@ -27,10 +27,7 @@ const lines = [
   `export type SupportedLanguage = ${codes.map((c) => `'${c}'`).join(' | ')};`,
   '',
   'export const translations: Record<SupportedLanguage, Translation> = {',
-  // `as unknown as Translation` is intentional: locales from Weblate may be incomplete
-  // (a subset of keys) or carry extra keys not yet in the Translation type; at runtime
-  // missing keys fall back to `en` via i18n.t().
-  ...codes.map((c, i) => `  ${toKey(c)}: ${toIdent(c)} as unknown as Translation${i < codes.length - 1 ? ',' : ''}`),
+  ...codes.map((c, i) => `  ${toKey(c)}: ${toIdent(c)} as Translation${i < codes.length - 1 ? ',' : ''}`),
   '};',
   ''
 ];
