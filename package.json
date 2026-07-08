@@ -10,7 +10,8 @@
     "lint": "bun run eslint src/",
     "lint:fix": "bun run eslint src/ --fix",
     "prebuild": "bun run lint",
-    "typecheck": "bun run tsc --noEmit"
+    "typecheck": "bun run tsc --noEmit",
+    "locales:generate": "bun run scripts/generate-locales.ts"
   },
   "keywords": [
     "home-assistant",
