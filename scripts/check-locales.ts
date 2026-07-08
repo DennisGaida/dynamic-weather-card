@@ -14,6 +14,13 @@ const flattenKeys = (obj: Json, prefix = ''): string[] =>
       : [path];
   });
 
+const flattenEmptyKeys = (obj: Json, prefix = ''): string[] =>
+  Object.entries(obj).flatMap(([key, value]) => {
+    const path = prefix ? `${prefix}.${key}` : key;
+    if (value !== null && typeof value === 'object') return flattenEmptyKeys(value as Json, path);
+    return value === '' ? [path] : [];
+  });
+
 const readLocale = (code: string): Json =>
   JSON.parse(readFileSync(join(LOCALES_DIR, code, 'translation.json'), 'utf-8')) as Json;
 
@@ -26,16 +33,23 @@ const enKeys = new Set(flattenKeys(readLocale('en')));
 let failed = false;
 
 for (const code of codes) {
-  let keys: string[];
+  let locale: Json;
   try {
-    keys = flattenKeys(readLocale(code));
+    locale = readLocale(code);
   } catch (error) {
     console.error(`❌ ${code}: invalid JSON — ${String(error)}`);
     failed = true;
     continue;
   }
+
+  const emptyKeys = flattenEmptyKeys(locale);
+  if (emptyKeys.length > 0) {
+    console.warn(`⚠️ ${code}: ${emptyKeys.length} empty value(s), will render blank: ${emptyKeys.slice(0, 5).join(', ')}${emptyKeys.length > 5 ? ', …' : ''}`);
+  }
+
   if (code === 'en') continue;
 
+  const keys = flattenKeys(locale);
   const extra = keys.filter((k) => !enKeys.has(k));
   const missing = [...enKeys].filter((k) => !keys.includes(k));
 

@@ -65,3 +65,4 @@ Project → Billing (или https://hosted.weblate.org/billing/) → выбра�
   Единственная ручная строка — `editor.language_<code>` в `en/translation.json`
   (до её перевода подпись в селекторе даёт `Intl.DisplayNames`).
 - Перед мержем Weblate-PR CI проверит локали (`locales:check`).
+- Примечание: для совершенно нового языка CI дополнительно потребует перегенерированный индекс локалей — мейнтейнер запускает `bun run locales:generate` и пушит его в ветку PR.

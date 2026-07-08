@@ -9,9 +9,9 @@ interface ResolveLanguageOptions {
 const normalize = (lang?: string): SupportedLanguage | undefined => {
   if (!lang) return undefined;
   const lower = lang.toLowerCase();
-  if (lower in translations) return lower as SupportedLanguage;
+  if (Object.hasOwn(translations, lower)) return lower as SupportedLanguage;
   const base = lower.split('-')[0];
-  if (base in translations) return base as SupportedLanguage;
+  if (Object.hasOwn(translations, base)) return base as SupportedLanguage;
   return undefined;
 };
 
