@@ -387,7 +387,7 @@ export class AnimatedWeatherCard extends LitElement {
             ></weather-details>
           </div>
           ${this.config.showClock ? html`
-            <weather-clock .format=${this.config.clockFormat}></weather-clock>
+            <weather-clock .format=${this.config.clockFormat} .compact=${true}></weather-clock>
           ` : ''}
         </div>
       </div>

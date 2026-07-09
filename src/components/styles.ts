@@ -351,7 +351,4 @@ export const cardStyles = css`
     min-width: 0;
   }
 
-  .weather-card.layout--minimal weather-clock .clock {
-    font-size: 26px;
-  }
 `;
