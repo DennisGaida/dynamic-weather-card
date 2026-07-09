@@ -10,7 +10,6 @@
 
 [![Stars](https://img.shields.io/github/stars/teuchezh/dynamic-weather-card?style=social)](https://github.com/teuchezh/dynamic-weather-card/stargazers)
 [![Issues](https://img.shields.io/github/issues/teuchezh/dynamic-weather-card?style=social&logo=github)](https://github.com/teuchezh/dynamic-weather-card/issues)
-[![Translation status](https://hosted.weblate.org/widget/dynamic-weaher-card/-/svg-badge.svg)](https://hosted.weblate.org/engage/dynamic-weaher-card/)
 
 **[English](#)** | [Русский](README.ru.md)
 
@@ -136,7 +135,7 @@ type: custom:dynamic-weather-card
 entity: weather.home
 name: My Weather Station
 height: 300
-language: auto                    # auto, en, ru, de, fr, nl, es, it, hu, sk
+language: auto                    # auto, en, ru, de, fr, nl, es, it, hu, sk, pt, da, sr, pl
 overlay_opacity: 0.15             # 0-1 (dark overlay for better readability)
 wind_speed_unit: ms               # ms or kmh (for legacy integrations)
 
@@ -176,8 +175,9 @@ clock_format: 24h                         # 12h or 24h
 | **Display** |
 | `name` | string | - | Custom card title (leave empty to hide) |
 | `height` | number | `200` | Card height in pixels |
-| `language` | string | `auto` | `auto`, `en`, `ru`, `de`, `fr`, `nl`, `es`, `it`, `hu`, `sk` |
+| `language` | string | `auto` | `auto`, `en`, `ru`, `de`, `fr`, `nl`, `es`, `it`, `hu`, `sk`, `pt`, `da`, `sr`, `pl` |
 | `overlay_opacity` | number | `0.1` | Dark overlay opacity (0-1) for text readability |
+| `show_animations` | boolean | `true` | Render canvas weather animations (set `false` for a static gradient) |
 | **Temperature** |
 | `show_feels_like` | boolean | `true` | Display "feels like" temperature |
 | `show_min_temp` | boolean | `true` | Display minimum temperature |
@@ -253,8 +253,12 @@ The card automatically detects your Home Assistant language or you can set it ma
 | Italiano | `it` | ✅ Complete |
 | Magyar | `hu` | ✅ Complete |
 | Slovenčina | `sk` | ✅ Complete |
+| Português | `pt` | ✅ Complete |
+| Dansk | `da` | ✅ Complete |
+| Srpski | `sr` | ✅ Complete |
+| Polski | `pl` | ✅ Complete |
 
-Want to add or improve a translation? Contribute via **[Weblate](https://hosted.weblate.org/engage/dynamic-weaher-card/)** — no coding required!
+Want to add or improve a translation? Edit (or create) `src/internationalization/locales/<code>/translation.json` right in the GitHub web UI and open a pull request against the `dev` branch — that's the only file you need to touch, new languages are picked up automatically. Use `locales/en/translation.json` as the reference for keys; missing keys simply fall back to English. (A hosted Weblate instance is being set up again — see `docs/weblate-setup.md`.) Note: for a brand-new language CI will also ask for the regenerated locale index — a maintainer can run `bun run locales:generate` and push it to your PR branch.
 
 ---
 

@@ -3,6 +3,7 @@ import { property, state } from 'lit/decorators.js';
 import { DEFAULT_CONFIG } from '../constants';
 import { i18n } from '../internationalization/index';
 import { resolveLanguage } from '../internationalization/resolveLanguage';
+import { translations } from '../internationalization/locales.generated';
 import type { HomeAssistant } from '../types';
 
 type HaFormSchema = Array<{
@@ -12,6 +13,17 @@ type HaFormSchema = Array<{
 }>;
 
 type WeatherCardEditorConfig = Record<string, unknown>;
+
+const languageLabel = (code: string): string => {
+  const key = `editor.language_${code}`;
+  const translated = i18n.t(key);
+  if (translated !== key) return translated;
+  try {
+    return new Intl.DisplayNames([i18n.lang], { type: 'language' }).of(code) ?? code;
+  } catch {
+    return code;
+  }
+};
 
 export class DynamicWeatherCardEditor extends LitElement {
   @property({ attribute: false }) hass?: HomeAssistant;
@@ -105,15 +117,7 @@ export class DynamicWeatherCardEditor extends LitElement {
           select: {
             options: [
               { label: i18n.t('editor.language_auto'), value: 'auto' },
-              { label: i18n.t('editor.language_en'), value: 'en' },
-              { label: i18n.t('editor.language_ru'), value: 'ru' },
-              { label: i18n.t('editor.language_de'), value: 'de' },
-              { label: i18n.t('editor.language_nl'), value: 'nl' },
-              { label: i18n.t('editor.language_fr'), value: 'fr' },
-              { label: i18n.t('editor.language_es'), value: 'es' },
-              { label: i18n.t('editor.language_it'), value: 'it' },
-              { label: i18n.t('editor.language_sk'), value: 'sk' },
-              { label: i18n.t('editor.language_hu'), value: 'hu' }
+              ...Object.keys(translations).map((code) => ({ label: languageLabel(code), value: code }))
             ]
           }
         }
