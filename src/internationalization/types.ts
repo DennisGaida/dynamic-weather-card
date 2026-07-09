@@ -111,6 +111,7 @@ export interface EditorTranslations {
   wind_speed_unit: string;
   wind_speed_unit_ms: string;
   wind_speed_unit_kmh: string;
+  show_animations?: string;
 }
 
 export interface Translation {

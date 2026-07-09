@@ -177,6 +177,7 @@ clock_format: 24h                         # 12h или 24h
 | `height` | number | `200` | Высота карточки в пикселях |
 | `language` | string | `auto` | `auto`, `en`, `ru`, `de`, `fr`, `nl`, `es`, `it`, `hu`, `sk`, `pt`, `da`, `sr`, `pl` |
 | `overlay_opacity` | number | `0.1` | Прозрачность тёмного наложения (0-1) для читаемости текста |
+| `show_animations` | boolean | `true` | Рисовать анимации погоды на канвасе (`false` — статичный градиент) |
 | **Температура** |
 | `show_feels_like` | boolean | `true` | Отображать ощущаемую температуру |
 | `show_min_temp` | boolean | `true` | Отображать минимальную температуру |

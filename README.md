@@ -177,6 +177,7 @@ clock_format: 24h                         # 12h or 24h
 | `height` | number | `200` | Card height in pixels |
 | `language` | string | `auto` | `auto`, `en`, `ru`, `de`, `fr`, `nl`, `es`, `it`, `hu`, `sk`, `pt`, `da`, `sr`, `pl` |
 | `overlay_opacity` | number | `0.1` | Dark overlay opacity (0-1) for text readability |
+| `show_animations` | boolean | `true` | Render canvas weather animations (set `false` for a static gradient) |
 | **Temperature** |
 | `show_feels_like` | boolean | `true` | Display "feels like" temperature |
 | `show_min_temp` | boolean | `true` | Display minimum temperature |

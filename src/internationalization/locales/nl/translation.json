@@ -70,7 +70,8 @@
     "language_pt": "Portugees",
     "wind_speed_unit": "Windsnelheidseenheid",
     "wind_speed_unit_ms": "m/s",
-    "wind_speed_unit_kmh": "km/u"
+    "wind_speed_unit_kmh": "km/u",
+    "show_animations": "Animaties weergeven"
   },
   "demo": {
     "pageTitle": "Dynamische Weerkaart",

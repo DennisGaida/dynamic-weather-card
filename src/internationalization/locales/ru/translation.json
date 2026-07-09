@@ -70,7 +70,8 @@
     "language_pt": "Португальский",
     "wind_speed_unit": "Единицы скорости ветра",
     "wind_speed_unit_ms": "м/с",
-    "wind_speed_unit_kmh": "км/ч"
+    "wind_speed_unit_kmh": "км/ч",
+    "show_animations": "Показывать анимации"
   },
   "demo": {
     "pageTitle": "Динамическая карточка погоды",
