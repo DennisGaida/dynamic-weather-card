@@ -26,6 +26,7 @@ export class WeatherDetails extends LitElement {
       gap: 6px 12px;
       font-size: 13px;
       opacity: 0.9;
+      text-shadow: var(--card-text-shadow);
     }
 
     .info-item {
@@ -46,6 +47,7 @@ export class WeatherDetails extends LitElement {
       align-items: center;
       justify-content: center;
       color: white;
+      filter: var(--card-icon-filter);
     }
 
     .info-icon svg {

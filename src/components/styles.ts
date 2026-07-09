@@ -91,10 +91,7 @@ export const cardStyles = css`
     flex-direction: column;
     justify-content: space-between;
     color: white;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.4),
-      0 2px 6px rgba(0, 0, 0, 0.3),
-      0 4px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--card-text-shadow);
   }
 
   .header {
@@ -292,10 +289,7 @@ export const cardStyles = css`
     line-height: 1;
     color: white;
     text-align: right;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.4),
-      0 2px 6px rgba(0, 0, 0, 0.3),
-      0 4px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--card-text-shadow);
     z-index: 2;
     pointer-events: none;
   }
