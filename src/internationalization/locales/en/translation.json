@@ -67,6 +67,10 @@
     "language_it": "Italian",
     "language_sk": "Slovak",
     "language_hu": "Hungarian",
+    "language_pt": "Portuguese",
+    "language_da": "Danish",
+    "language_sr": "Serbian",
+    "language_pl": "Polish",
     "wind_speed_unit": "Wind Speed Unit",
     "wind_speed_unit_ms": "m/s",
     "wind_speed_unit_kmh": "km/h"
